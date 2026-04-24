@@ -1,0 +1,99 @@
+body{
+    margin: 0;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+h1{
+    margin-top: 0%;
+    font-family: Great Vibes;
+    margin-left: 30px;
+    font-size: 42px;
+    margin-bottom: 10px;
+    color: #FF85A9;
+}
+.navs{
+    display: flex;
+    gap: 20px;
+}
+.log a{
+    border: 1px solid #FF86AA ;
+    display: inline-block;
+    padding: 5px 10px;
+    color: #FF86AA;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.sign a{
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #FF86AA;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+section{
+    background-color: #FCF3EE;
+    padding: 30px;
+}
+.box1{
+    width: 400px;
+    height: 450px;
+    background-color: #f8d7da;
+    margin: auto;
+    border-radius: 25px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0,0.3);
+}
+.log_cont form{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin: auto;
+    align-items: center;
+}
+form input{
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 120%;
+    border-radius: 10px;
+}
+.log_cont h3{
+    text-align: center;
+    padding-top: 25%;
+    font-size: 30px;
+    margin-bottom: 0%;
+    color: #FF86AA;
+}
+.log_cont p{
+    text-align: center;
+    margin-bottom: 5%;
+}
+.btn{
+    border-radius: 10px 10px 10px 10px;
+    padding: 10px 20px;
+    background-color: #ff86aa ;
+    font-family: Shippori Mincho;
+    font-size: 10px;
+    border: none;
+    font-weight: bold;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0,0.3);
+    margin-right: 50%;
+    margin: auto;
+}
+.b a{
+    margin: auto;
+}
+.log_cont a{
+    padding-left: 45%;
+    text-decoration: underline;
+    color: black;
+    font-weight: bold;
+
+}

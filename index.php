@@ -14,7 +14,6 @@
         <nav class="navs">
             <a href="#Home">Home</a>
             <a href="#About">About</a>
-            <a href="">Kupal</a>
             <div class="log">
                 <a href="./frontend/login.php">Log In</a>
             </div>
@@ -60,11 +59,16 @@
                 </div>
             </div>
         </section>
+        <section id = "contacts">
+            <h4>Services</h4>
+            <p>Custom Facials</p>
+            <p>Anti-aging treatments</p>
+            <p>Acne Solutions</p>
+            <p>Hydration Therapy</p>
+        </section>
     </main>
     <footer>
 
-
-    
     </footer>
 </body>
 </html>
