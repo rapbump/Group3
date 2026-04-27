@@ -37,7 +37,7 @@
         </section>
         <section id="About">
             <div class="spark">
-                <img src="./images/image.png" alt="">
+                <img src="./images/image1.png" alt="">
             </div>
             <h3>The ultimate guide to radiant beauty</h3>
             <p>At Glowtrack, we believe that healthy skin starts with pure, effective ingredients. Our journey began with a simple mission</p>

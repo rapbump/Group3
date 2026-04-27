@@ -24,9 +24,10 @@
              <div class="log_cont">
                 <h3>Log In</h3>
                 <p>Use your email or other serivce to continue with us  </p>
-                <form action="GET">
-                    <input type="email" placeholder="Email Address">
-                    <input type="password" placeholder="Password">
+                <form action="POST">
+                    <input type="hidden" name="action" value="signin">
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="password" placeholder="Password" required>
                     <button type="submit" class="btn">LOG IN</button>
                     <p>Forgot Password</p>
                 </form>

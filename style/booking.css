@@ -2,7 +2,8 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 0%;
+    padding-right: 10px;
 }
 body{
     margin: 0%;
@@ -32,7 +33,7 @@ body{
     font-size: 14px;
 }
 h1{
-    margin-top: 3%;
+    padding-top: 0;
     font-family: Great Vibes;
     margin-left: 30px;
     font-size: 42px;
@@ -68,6 +69,7 @@ h1{
 .form_sec form input{
     margin-top: 7px;
     margin-left: 10px;
+    border-radius: 5px;
 }
 .form_sec h3{
     padding-left: 10%;
@@ -78,6 +80,7 @@ h1{
     margin-top: 10px;
     width: 90%;
     margin-left: 10px;
+    border-radius: 5px;
 }
 .btn button{
     margin-left: 10px;
