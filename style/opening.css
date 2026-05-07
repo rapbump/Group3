@@ -1,0 +1,13 @@
+
+body{
+    margin: 0;
+}
+#Home{
+    background-color: #FCF3EE;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}

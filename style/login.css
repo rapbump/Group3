@@ -39,61 +39,72 @@ h1{
     font-weight: bold;
     font-size: 14px;
 }
-section{
-    background-color: #FCF3EE;
-    padding: 30px;
-}
-.box1{
-    width: 400px;
-    height: 450px;
-    background-color: #f8d7da;
-    margin: auto;
-    border-radius: 25px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0,0.3);
-}
-.log_cont form{
+main{
     display: flex;
-    flex-direction: column;
-    width: 200px;
-    margin: auto;
+    justify-content: center;
     align-items: center;
+    min-height: 100vh;
+    background: #FCF3EE;
 }
-form input{
-    margin-bottom: 10px;
-    padding: 10px;
-    width: 120%;
+.container{
+    margin: 0 15px;
+}
+section .form_box{
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    background: #ffaec7; 
     border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0 , 0, 0, 0.1);
 }
-.log_cont h3{
+h2{
+    font-size: 34px;
     text-align: center;
-    padding-top: 25%;
-    font-size: 30px;
-    margin-bottom: 0%;
-    color: #FF86AA;
+    margin-bottom: 10px;
 }
-.log_cont p{
-    text-align: center;
-    margin-bottom: 5%;
-}
-.btn{
-    border-radius: 10px 10px 10px 10px;
-    padding: 10px 20px;
-    background-color: #ff86aa ;
-    font-family: Shippori Mincho;
-    font-size: 10px;
+input{
+    width: 92.5%;
+    padding: 20px;
+    background: #eee;
+    border-radius: 20px;
     border: none;
-    font-weight: bold;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0,0.3);
-    margin-right: 50%;
-    margin: auto;
+    outline: none;
+    font-size: 10px;
+    color: #333;
+    margin-bottom: 20px;
 }
-.b a{
-    margin: auto;
+button{
+    width: 100%;
+    padding: 12px;
+    background: #7494ec;
+    border-radius: 12px;
+    border: none;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 20px;
 }
-.log_cont a{
-    padding-left: 45%;
+button:hover{
+    background-color: #6884d3;
+}
+p{
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+p a{
+    color: #7494ec;
+    text-decoration: none;
+}
+p a:hover{
     text-decoration: underline;
-    color: black;
-    font-weight: bold;
-
+}
+.error-message{
+    padding: 12px;
+    background: #f8d7da;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #a42834;
+    text-align: center;
+    margin-bottom: 20px;
 }

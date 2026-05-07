@@ -24,26 +24,15 @@ header {
   font-weight: 500;
   line-height: 1.5;
 }
-.log a{
-    border: 1px solid #FF86AA ;
-    display: inline-block;
-    padding: 5px 10px;
+form button {
+    background-color: transparent;
+    border: none;
     color: #FF86AA;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
 }
-.sign a{
-    display: inline-block;
-    padding: 5px 10px;
-    background-color: #FF86AA;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 14px;
-}
+
+
 body{
     margin: 0;
 }
@@ -188,4 +177,3 @@ body{
     font-size: 0.9rem;
     color: #777;
 }
-

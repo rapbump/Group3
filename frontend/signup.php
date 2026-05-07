@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +12,18 @@
     <title>SignUp</title>
 </head>
 <body>
+    <?php
+
+    if (!empty($_SESSION['flash'])) { 
+        $type = $_SESSION['flash']['type'];
+        $text = $_SESSION['flash']['text'];
+
+        echo "<div class='msg " . htmlspecialchars($type) . "'>" . htmlspecialchars($text) . "</div>";
+
+        unset($_SESSION['flash']);
+    }
+    ?>
+    <?php if (empty($_SESSION['user'])): ?>
     <header>
         <h1>GlowTrack</h1>
         <nav class="navs">
@@ -22,26 +38,30 @@
     <section class="entrance">
         <div class="halfL">
             <h2>Glow naturally with GlowTrack</h2>
-            <form action="POST">
+            <form method="POST" action="../backend/logs.php">
                 <input type="hidden" name="action" value="signup">
-                <div class="FLName">
-                    <input type="text" placeholder="First Name" required>
-                    <input type="text" placeholder="Last Name" required>
-                </div>
                 <div class="others">
-                    <input type="email" placeholder="Email" required>
-                    <input type="password" placeholder="Create Password" required>
-                    <input type="password" placeholder="Confirm Password" required>
+                    <input type="text" name="name" placeholder="Username" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Create Password" required>
+                    <select name="role" required>
+                        <option value="">Select Role</option>
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
                 </div>
                 <div class="save">
-                    <button type="submit">Sign Up</button>
-                    <a href="./../index.php">Cancel</a>
+                    <button type="submit" name="signup">Sign Up</button>
                 </div>
+                    <p>Already have an account? <a href="./login.php">SignIn</a></p>
             </form>
         </div>
         <div class="halfR">
             <img src="./../images/design.png" alt="design">
         </div>
     </section>
+    <?php else: ?>
+    <?php include 'glowtrack.php'; ?>
+    <?php endif; ?>
 </body>
 </html>

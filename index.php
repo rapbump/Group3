@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,16 +63,18 @@
                 </div>
             </div>
         </section>
-        <section id = "contacts">
-            <h4>Services</h4>
-            <p>Custom Facials</p>
-            <p>Anti-aging treatments</p>
-            <p>Acne Solutions</p>
-            <p>Hydration Therapy</p>
-        </section>
     </main>
-    <footer>
-
+    <footer class="footer">
+        <div class="footer-container">
+            <h4>Services</h4>
+            <ul class="footer-services">
+                <li>Custom Facials</li>
+                <li>Anti-aging Treatments</li>
+                <li>Acne Solutions</li>
+                <li>Hydration Therapy</li>
+            </ul>
+            <p class="footer-copy">&copy; 2026 GlowTrack. All rights reserved.</p>
+        </div>
     </footer>
 </body>
 </html>

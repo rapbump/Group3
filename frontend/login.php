@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,23 +23,21 @@
             </div>
         </nav>
     </header>
-    <section>   
-        <div class="box1">
-             <div class="log_cont">
-                <h3>Log In</h3>
-                <p>Use your email or other serivce to continue with us  </p>
-                <form action="POST">
-                    <input type="hidden" name="action" value="signin">
-                    <input type="email" placeholder="Email Address" required>
-                    <input type="password" placeholder="Password" required>
-                    <button type="submit" class="btn">LOG IN</button>
-                    <p>Forgot Password</p>
-                </form>
-                <div class="return">
-                    <a href="./../index.php">Home</a>
+    <main>
+        <section>
+            <div class="container">
+                <div class="form_box" id="login-form">
+                    <form action="./../backend/logs.php" method="POST">
+                        <h2>Log In</h2>
+                        <input type="hidden" name="action" value="login">
+                        <input type="text" name="name" placeholder="Username" required>
+                        <input type="password" name="pass" placeholder="Password" reqired>
+                        <button type="submit" name="login">Login</button>
+                        <p>Don't have an account? <a href="../frontend/signup.php">SignUp</a></p>
+                    </form>
                 </div>
             </div>
-        </div> 
-    </section>
+        </section>
+    </main>
 </body>
 </html>
