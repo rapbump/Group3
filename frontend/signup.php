@@ -12,26 +12,16 @@ session_start();
     <title>SignUp</title>
 </head>
 <body>
-    <?php
-
-    if (!empty($_SESSION['flash'])) { 
-        $type = $_SESSION['flash']['type'];
-        $text = $_SESSION['flash']['text'];
-
-        echo "<div class='msg " . htmlspecialchars($type) . "'>" . htmlspecialchars($text) . "</div>";
-
-        unset($_SESSION['flash']);
-    }
-    ?>
-    <?php if (empty($_SESSION['user'])): ?>
     <header>
-        <h1>GlowTrack</h1>
+        <div class="logo">
+            <a href="../index.php">GlowTrack</a>
+        </div>
         <nav class="navs">
             <div class="log">
-                <a href="./login.php">Log In</a>
+                <a href="login.php">Log In</a>
             </div>
             <div class="sign">
-                <a href="./signup.php">Sign Up</a>
+                <a href="signup.php">Sign Up</a>
             </div>
         </nav>
     </header>
@@ -60,8 +50,5 @@ session_start();
             <img src="./../images/design.png" alt="design">
         </div>
     </section>
-    <?php else: ?>
-    <?php include 'glowtrack.php'; ?>
-    <?php endif; ?>
 </body>
 </html>

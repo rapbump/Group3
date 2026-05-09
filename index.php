@@ -13,8 +13,16 @@ session_start();
     <title>GlowTrack</title>
 </head>
 <body>
+    <?php
+    if (!empty($_SESSION['flash'])) {
+        echo "<p>" . htmlspecialchars($_SESSION['flash']['text']) . "</p>";
+        unset($_SESSION['flash']);
+    }
+    ?>
     <header>
-        <h1 class="logo">GlowTrack</h1>
+        <div class="logo">
+            <a href="index.php">GlowTrack</a>
+        </div>
         <nav class="navs">
             <a href="#Home">Home</a>
             <a href="#About">About</a>
@@ -32,7 +40,10 @@ session_start();
                 <h1>REVEL IN YOUR MOST NATURAL GLOW</h1>
                 <p>Luxury, Science-led Natural Skincare made from high quality plant extracts.</p>
                 <div class="book">
-                    <a href="./frontend/booking.php">Book an appointment</a>
+                    <form action="./backend/books.php" method="POST">
+                        <input type="hidden" name="action" value="book">
+                        <button type="submit" >Book an appointment</button>
+                    </form>
                 </div>
             </div>
             <div class="image">

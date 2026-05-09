@@ -4,6 +4,7 @@ header{
     align-items: center;
     padding: 0%;
     padding-right: 10px;
+    margin: 20px;
 }
 body{
     margin: 0%;
@@ -12,28 +13,11 @@ body{
     display: flex;
     gap: 20px;
 }
-.log a{
-    border: 1px solid #FF86AA ;
-    display: inline-block;
-    padding: 5px 10px;
-    color: #FF86AA;
+
+header .logo a{
+    margin-top: 10px;
     text-decoration: none;
-    border-radius: 5px;
     font-weight: bold;
-    font-size: 14px;
-}
-.sign a{
-    display: inline-block;
-    padding: 5px 10px;
-    background-color: #FF86AA;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 14px;
-}
-h1{
-    padding-top: 0;
     font-family: Great Vibes;
     margin-left: 30px;
     font-size: 42px;
@@ -52,10 +36,17 @@ h1{
     padding: 0;
     margin-top: 0;
 }
+.form-row{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
 .form_sec{
     border-radius: 25px;
-    width: 900px;
-    height: 300px;
+    width: 950px;
+    height: 350px;
     background-color: #f8d7da;
     margin-right: 20%;
     margin-top: 7%;
@@ -64,12 +55,12 @@ h1{
 .form_sec form{
     margin-top: 8%;
     margin-left: 10px;
-
 }
 .form_sec form input{
     margin-top: 7px;
     margin-left: 10px;
     border-radius: 5px;
+    margin-bottom: 10px;
 }
 .form_sec h3{
     padding-left: 10%;
@@ -99,4 +90,8 @@ h1{
     text-decoration: none;
     color: black;
     font-weight: bold;
+}
+.btn button:hover{
+    background-color: #b86b82;
+    color: white;
 }

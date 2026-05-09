@@ -1,3 +1,22 @@
+<?php
+session_start();
+
+$host = 'localhost';
+$user = 'root';
+$password = '';
+$dbname = 'customer_db';
+
+$conn = new mysqli($host, $user, $password, $dbname);
+if ($conn->connect_error) {
+    die('Database connection failed: ' . $conn->connect_error);
+}
+
+$results = $conn->query("SELECT service_id, service_name FROM service");
+if (!$results) {
+    die('Query failed: ' . $conn->error);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,15 +29,9 @@
 </head>
 <body>
     <header>
-        <h1>GlowTrack</h1>
-        <nav class="navs">
-            <div class="log">
-                <a href="./login.php">Log In</a>
-            </div>
-            <div class="sign">
-                <a href="./signup.php">Sign Up</a>
-            </div>
-        </nav>
+        <div class="logo">
+            <a href="../index.php">GlowTrack</a>
+        </div>
     </header>
     <div class="container">
         <div class="image2">
@@ -26,24 +39,27 @@
         </div>
         <div class="form_sec">
             <h3>Book an Appointment</h3>
-            <form action="GET">
+            <form action="../backend/books.php" method="POST">
                 <input type="hidden" name="action" value="book">
                 <input type="text" name="fname" placeholder="Full Name" required>
                 <input type="date" name="date" required>
-                <input type="tel" placeholder="Phone Number" required>
-                <input type="time" placeholder="00:00 Am" required>
-                <input type="email" placeholder="Email" required>
-                <select name="services" required>
-                    <option value="" disabled <? $services == "" ? "selected" : ""?>>Select Services</option>
-                    <option value="Custom Facials" <? $services == "Custom Facials" ? "selected" : ""?>>Custom Facials</option>
-                    <option value="Anti-aging treatments" <? $services == "Anti-aging treatments" ? "selected" : ""?>>Anti-aging treatments</option>
-                    <option value="Acne Solutions" <? $services == "Acne Solutions" ? "selected" : ""?>>Acne Solutions</option>
-                    <option value="Hydration Therapy" <? $services == "Hydration Therapy" ? "selected" : ""?>>Hydration Therapy</option>
-                </select>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                <input type="time" name="time" placeholder="00:00 Am" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <div class="form-row">
+                    <label for="services">Choose Services</label>
+                    <select name="services" required>
+                        <?php while ($row = $results->fetch_assoc()): ?>
+                            <option value="<?php echo htmlspecialchars($row['service_id']); ?>">
+                                <?php echo htmlspecialchars($row['service_name']); ?>
+                            </option>
+                        <?php endwhile; ?>
+                    </select>
+                </div>
                 <textarea name="comment" placeholder="Write A Message"></textarea>
                 <div class="btn">
                     <button type="submit">Submit</button>
-                    <a href="./../index.php">Back</a>
+                    <a href="glowtrack.php">Back</a>
                 </div>
             </form>
         </div>

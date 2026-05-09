@@ -1,0 +1,232 @@
+body {
+    margin: 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+nav {
+    display: flex;
+    gap: 20px;
+}
+header nav a{
+    text-decoration: none;
+    margin-right: 30px;
+    color: #FF85A9;
+}
+form button {
+    background-color: transparent;
+    border: none;
+    color: #FF85A9;
+    font-weight: 500;
+    cursor: pointer;
+}
+form button:hover {
+    color: #b86b82;
+    text-decoration: underline;
+}
+nav a:hover {
+    color: #b86b82;
+    text-decoration: underline;
+}
+.logo a{
+    text-decoration: none;
+    margin-top: 0%;
+    font-family: Great Vibes;
+    margin-left: 30px;
+    font-size: 42px;
+    margin-bottom: 10px;
+    color: #FF85A9;
+    font-weight: bold;
+}
+.logo a:hover{
+    color: #b86b82;
+    text-decoration: underline;
+}
+.manage-sections{
+    display: grid;
+    gap: 24px;
+    padding: 36px 32px;
+}
+.manage-section {
+    background: #f0f0f0;
+    border-radius: 24px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.8);
+    padding: 28px;
+    min-height: 240px;
+    margin-bottom: 30px;
+}
+.manage-section h2, h4{
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #FF85A9;
+
+}
+.data{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.numbers{
+    font-size: 40px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.ol{
+    font-weight: bold;
+    color: #FF85A9;
+}
+.view{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.view a{
+    text-decoration: none;
+    color: #FF85A9;
+    font-weight: 500;
+}
+.view a:hover{
+    color: #b86b82;
+    text-decoration: underline;
+}
+.bot-container{
+    border-top: 1px solid #ddd;
+    margin-top: 40px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.bot-container .reviews{
+    text-align: left;
+    color: #FF85A9;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 15px;
+    background: #f0f0f0;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+}
+.bot-container .reviews p{
+    color: black;
+}
+.reviews a{
+    color: #FF85A9 ;
+}
+.reviews a:hover{
+    color: #df9cb0;
+    text-decoration: underline;
+}
+.bot-container .appointments{
+    text-align: left;
+    color: #FF85A9;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 15px;
+    background: #f0f0f0;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+}
+.bot-container .appointments p{
+    color: black;
+}
+.appointments a{
+    color: #FF85A9 ;
+}
+.appointments a:hover{
+    color: #df9cb0;
+    text-decoration: underline;
+}
+.serve{
+    border-top: 1px solid #ddd;
+    margin-top: 40px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.serve .serves{
+    text-align: left;
+    color: #FF85A9;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 15px;
+    background: #f0f0f0;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+.add {
+    text-align: center;
+    background-color: #FF85A9;
+    padding: 2px;
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 20px;
+}
+.add a{
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    display: block;
+}
+.add a:hover{
+    background-color: #b86b82;
+    text-decoration: none;
+    border-radius: 20px;
+}
+.serve a{
+    text-decoration: none;
+    color: #FF85A9;
+    font-weight: 500;
+}
+.serve a:hover{
+    color: #b86b82;
+    text-decoration: underline;
+}
+.prod-container{
+    border-top: 1px solid #ddd;
+    margin-top: 40px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.prod-container .prods{
+    text-align: left;
+    color: #FF85A9;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 15px;
+    background: #f0f0f0;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+.add a{
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    display: block;
+}
+.add a:hover{
+    background-color: #b86b82;
+    text-decoration: none;
+    border-radius: 20px;
+}
+.prod-container a{
+    text-decoration: none;
+    color: #FF85A9;
+    font-weight: 500;
+}
+.prod-container a:hover{
+    color: #b86b82;
+    text-decoration: underline;
+}

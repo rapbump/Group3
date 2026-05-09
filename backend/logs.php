@@ -6,7 +6,7 @@ $user = "root";
 $pass = "";
 $dbname = "customer_db";
 
-$conn = new mysqli($host, $user, $pass, $dbname);
+$conn = new mysqli($host, $user, $password, $dbname);
 
 if ($conn->connect_error){
     die("Database connection failed: " . $conn->connect_error);
@@ -118,10 +118,12 @@ if ($action === 'login'){
         }
         else{
             flash('err', 'Login failed: invalid username or password.');
+            redirect_home();
         }
     }
     else{
         flash('err', 'Login failed: invalid username or password.');
+        redirect_home();
     }
     $stmt->close();
 }

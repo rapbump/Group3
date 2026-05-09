@@ -31,7 +31,10 @@ form button {
     font-weight: 500;
     cursor: pointer;
 }
-
+form button:hover {
+    color: #b86b82;
+    text-decoration: underline;
+}
 
 body{
     margin: 0;
@@ -134,7 +137,7 @@ body{
     border-radius: 60%;
 }
 .footer {
-    background-color: #f8f0f5; /* soft pink tone */
+    background-color: #f8f0f5;
     padding: 30px 20px;
     text-align: center;
     border-top: 2px solid #e0c4d0;

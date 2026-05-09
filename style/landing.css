@@ -5,7 +5,9 @@ header {
   padding: 20px;
 }
 
-.logo {
+.logo a {
+    text-decoration: none;
+    font-weight: bold;
     margin-top: 0;
     margin-bottom: 0;
     padding-left: 7%;
@@ -82,18 +84,24 @@ body{
     margin-left: 70px;
     margin-top: 10px;
 }
-.book a{
+.book {
+    margin-top: 10px;
+}
+
+.book button {
+    margin-top: 10px; 
     width: 150px;
-    display: inline-block;
     background-color: #FF86AA;
     border: 1px solid black;
     border-radius: 5px 5px 5px 0px;
     margin-left: 70px;
     padding: 5px;
-    text-align: center;
-    text-decoration: none;
-    color: black;
 }
+.book button:hover {
+    background-color: #b86b82;
+    color: white;
+}
+
 #About p{
     margin: auto;
     font-size: 18px;

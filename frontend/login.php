@@ -12,8 +12,19 @@ session_start();
     <title>login</title>
 </head>
 <body>
+    <?php
+    if (!empty($_SESSION['flash'])) {
+    $type = $_SESSION['flash']['type'];
+    $text = $_SESSION['flash']['text'];
+
+    echo "<div class='msg " . htmlspecialchars($type) . "'>" . htmlspecialchars($text) . "</div>";
+    unset($_SESSION['flash']);
+    }
+    ?>
     <header>
-        <h1>GlowTrack</h1>
+        <div class="logo">
+            <a href="../index.php">GlowTrack</a>
+        </div>
         <nav class="navs">
             <div class="log">
                 <a href="./login.php">Log In</a>
