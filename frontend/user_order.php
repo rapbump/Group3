@@ -1,23 +1,23 @@
 <?php
+
 session_start();
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$dbname = 'customer_db';
+
+$host = "localhost";
+$user = "root";
+$password = "";
+$dbname = "glowtrack_db";
 
 $conn = new mysqli($host, $user, $password, $dbname);
-if ($conn->connect_error) {
-    die('Database connection failed: ' . $conn->connect_error);
+
+if($conn->connect_error){
+    die("Connection Failed: ". $conn->connect_error);
 }
+
 
 $results = $conn->query("SELECT * FROM products");
 if (!$results) {
     die('Query failed: ' . $conn->error);
-}
-$prodResults = $conn->query("SELECT * FROM products");
-if (!$prodResults) {        
-    die('Query failed: ' . $conn->error);
-}   
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,28 +32,38 @@ if (!$prodResults) {
 <body>
     <header>
         <div class="logo">
-            <a href="../frontend/glowtrack.php">GlowTrack</a>
+            <a href="../frontend/users_page.php">GlowTrack</a>
         </div>
-        <nav>
-            <a href="../frontend/cart.php">Cart</a>
-        </nav>
+        <div class="navs">
+            <nav class="cart">
+                <a href="../frontend/user_cart.php">Cart</a>
+                <a href="/frontend/user_pay.php">To Ship</a>
+            </nav>
+        </div>
     </header>
     <main class="market">
         <h2>Available Products:</h2>
         <div class="products">
+            <?php if ($results->num_rows === 0) : ?>
+                <div class="no-products">
+                    <h3>No products available</h3>
+                </div>
+            <?php else: ?>
             <?php while ($row = $results->fetch_assoc()): ?>
                 <div class="product-card">
-                    <h3><?php echo htmlspecialchars($row['product_name']); ?></h3>
+                    <h3><?php echo htmlspecialchars($row['pname']); ?></h3>
                     <p><?php echo htmlspecialchars($row['description']); ?></p>
                     <p>Price: $<?php echo htmlspecialchars($row['price']); ?></p>
-                    <form action="../backend/cart.php" method="POST">
+                    <form action="../backend/cart_handler.php" method="POST">
                         <input type="hidden" name="action" value="add_to_cart">
                         <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($row['product_id']); ?>">
+                        <input type="number" name="quantity" placeholder="Quantity" step="0.01">
                         <button type="submit">Add to Cart</button>
                     </form>
                 </div>
             <?php endwhile; ?>
-
+            <?php endif; ?>
+        </div>
     </main>
 </body>
 </html>

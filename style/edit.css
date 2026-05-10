@@ -1,0 +1,76 @@
+body {
+  font-family: 'Shippori Mincho', serif;
+  background-color: #FF85A9;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+}
+
+.logo a {
+  font-family: 'Great Vibes', cursive;
+  font-size: 32px;
+  color: #FF85A9;
+  text-decoration: none;
+}
+
+main {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 20px 30px rgba(236, 14, 151, 0.7);
+}
+
+.edit-product h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.save-btn {
+  background-color: #FF85A9;
+  color: #fff;
+}
+
+.save-btn:hover {
+  background-color: #b86b82;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background-color: #a71d2a;
+}

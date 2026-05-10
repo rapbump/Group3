@@ -1,15 +1,7 @@
 <?php
 session_start();
-$host = "localhost";
-$user = "root";
-$password = "";
-$dbname = "customer_db";
+include 'connection.php';
 
-$conn = new mysqli($host, $user, $password, $dbname);
-
-if($conn->connect_error){
-    die("Connection Failed: ". $conn->connect_error);
-}
 function flash(string $type, string $text): void    
 {
     $_SESSION['flash'] = [ 
@@ -18,7 +10,7 @@ function flash(string $type, string $text): void
     ];
 }
 function redirect_addService(){
-    header("Location: ../frontend/addSer.php");
+    header("Location: ../frontend/admin_addSer.php");
     exit();
 }
 
@@ -33,15 +25,16 @@ if ($action === ''){
     redirect_addService();
 }
 if ($action === 'add'){
-    $pname = trim($_POST['name']);
+    $service_name = trim($_POST['service_name'] ?? '');
     $desc = $_POST['description'];
     $price = $_POST['price'];
 
-    if ($pname === '' || $desc === '' || $price === ''){
+
+    if ($service_name === '' || $desc === '' || $price === ''){
         flash('err', 'All fields are required.');
         redirect_addService();
     }
-    if (strlen($pname) < 5){
+    if (strlen($service_name) < 5){
         flash('err', 'Service name must be at least 5 characters.');
         redirect_addService();
     }
@@ -49,12 +42,12 @@ if ($action === 'add'){
         flash('err', 'Price must be a positive number.');
         redirect_addService();
     }
-    $stmt = $conn->prepare("INSERT INTO service (service_name, description, price) VALUES (?,?,?)");
+    $stmt = $conn->prepare("INSERT INTO services (service_name, description, price) VALUES (?,?,?)");
     if (!$stmt) {
         flash('err', 'Prepare failed: ' . $conn->error);
         redirect_addService();
     }
-    $stmt->bind_param("ssd", $pname, $desc, $price);
+    $stmt->bind_param("ssd", $service_name, $desc, $price);
     if ($stmt->execute()) {
         flash('ok', 'Service added successfully.');
     } else {

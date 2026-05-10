@@ -3,13 +3,13 @@ session_start();
 
 $host = "localhost";
 $user = "root";
-$pass = "";
-$dbname = "customer_db";
+$password = "";
+$dbname = "glowtrack_db";
 
 $conn = new mysqli($host, $user, $password, $dbname);
 
-if ($conn->connect_error){
-    die("Database connection failed: " . $conn->connect_error);
+if($conn->connect_error){
+    die("Connection Failed: ". $conn->connect_error);
 }
 
 function flash(string $type, string $text): void    
@@ -56,7 +56,7 @@ if ($action === 'signup'){
     }
     $hashed = password_hash($pass , PASSWORD_DEFAULT);
 
-    $stmt = $conn->prepare("INSERT INTO users (name , email , password, role) VALUES (?,?,?,?)");
+    $stmt = $conn->prepare("INSERT INTO users (username , email , password, role) VALUES (?,?,?,?)");
 
     if (!$stmt){
         flash('err', 'Registration failed: database error.'); 
@@ -86,7 +86,7 @@ if ($action === 'login'){
         exit();
     }
 
-    $stmt = $conn->prepare("SELECT customer_id , name, password, role FROM users WHERE name =  ? LIMIT 1");
+    $stmt = $conn->prepare("SELECT user_id , username, password, role FROM users WHERE username =  ? LIMIT 1");
 
     if(!$stmt){
         flash('err', 'Login failed: database error.');
@@ -99,20 +99,22 @@ if ($action === 'login'){
     if ($row = $result->fetch_assoc()){
         if (password_verify($pass, $row['password'])){
             session_regenerate_id(true);
+
+            $_SESSION ['user_id'] = (int)$row['user_id'];
             
             $_SESSION['user'] = [
-                'id' => (int)$row['customer_id'],
-                'username' => $row['name'],
+                'id' => (int)$row['user_id'],
+                'username' => $row['username'],
                 'role' => $row['role']
             ];
             flash('ok', 'Login successful!');
 
             if ($row['role'] === 'admin'){
-                header("Location: ../frontend/admin.php");
+                header("Location: ../frontend/admin_page.php");
                 exit();
             }
             else{
-                header("Location: ../frontend/glowtrack.php");
+                header("Location: ../frontend/users_page.php");
                 exit();
             }
         }

@@ -1,0 +1,135 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: #333 1px solid;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.logo {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 7%;
+    font-size: 42px;
+    font-weight: bold;
+    color: #FF86AA;
+    font-family: Great Vibes;
+}
+.navs{
+    display: flex;
+    gap: 20px;
+}
+.navs a {
+  text-decoration: none;
+  color: #FF86AA;
+  font-weight: 500;
+  line-height: 1.5;
+}
+form button {
+    background-color: transparent;
+    border: none;
+    color: #FF86AA;
+    font-weight: 500;
+    cursor: pointer;
+}
+form button:hover {
+    color: #b86b82;
+    text-decoration: underline;
+}
+main {
+    padding: 30px;
+}
+
+.Appointments {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.Appointments h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    color: #444;
+}
+.Appointments table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.Appointments th, 
+.Appointments td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.Appointments th {
+    background: #f7c6d9;
+    color: #333;
+    font-weight: bold;
+}
+
+.Appointments tr:nth-child(even) {
+    background: #fafafa;
+}
+
+.Appointments tr:hover {
+    background: #f0f0f0;
+}
+
+
+.Appointments td span {
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.Appointments td span.accepted {
+    background: #e6f9e6;
+    color: #2e7d32;
+}
+
+.Appointments td span.rejected {
+    background: #fde0e0;
+    color: #c62828;
+}
+
+.Appointments td span.pending {
+    background: #fff3e0;
+    color: #ef6c00;
+}
+
+.Appointments form button {
+    margin: 2px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.Appointments form button[type="submit"] {
+    background: #4caf50;
+    color: #fff;
+}
+
+.Appointments form button[type="submit"]:hover {
+    background: #388e3c;
+}
+
+.Appointments form button[name="reject"] {
+    background: #f44336;
+    color: #fff;
+}
+
+.Appointments form button[name="reject"]:hover {
+    background: #d32f2f;
+}

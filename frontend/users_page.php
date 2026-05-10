@@ -1,5 +1,15 @@
 <?php
 session_start();
+$host = "localhost";
+$user = "root";
+$password = "";
+$dbname = "glowtrack_db";
+
+$conn = new mysqli($host, $user, $password, $dbname);
+
+if($conn->connect_error){
+    die("Connection Failed: ". $conn->connect_error);
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,9 +34,10 @@ session_start();
         <nav class="navs">
             <a href="#Home">Home</a>
             <a href="#About">About</a>
-            <a href="../frontend/order.php">Order</a>
-            <a href="../frontend/cart.php">Cart</a>
-            <form action="../backend/logs.php" method="POST">
+            <a href="../frontend/user_order.php">Order</a>
+            <a href="../frontend/user_cart.php">Cart</a>
+            <a href="../frontend/user_appointments.php">Appointments</a>
+            <form action="../backend/users_logs.php" method="POST">
                 <input type="hidden" name="action" value="logout">
                 <button type="submit" name="logout">Log Out</button>
             </form>
@@ -38,7 +49,7 @@ session_start();
                 <h1>REVEL IN YOUR MOST NATURAL GLOW</h1>
                 <p>Luxury, Science-led Natural Skincare made from high quality plant extracts.</p>
                 <div class="book">
-                    <a href="../frontend/booking.php">Book an appointment</a>
+                    <a href="../frontend/user_booking.php">Book an appointment</a>
                 </div>
             </div>
             <div class="image">

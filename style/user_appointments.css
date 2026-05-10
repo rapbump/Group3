@@ -1,0 +1,111 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: #333 1px solid;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.logo {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 7%;
+    font-size: 42px;
+    font-weight: bold;
+    color: #FF86AA;
+    font-family: Great Vibes;
+}
+.navs{
+    display: flex;
+    gap: 20px;
+}
+.navs a {
+  text-decoration: none;
+  color: #FF86AA;
+  font-weight: 500;
+  line-height: 1.5;
+}
+form button {
+    background-color: transparent;
+    border: none;
+    color: #FF86AA;
+    font-weight: 500;
+    cursor: pointer;
+}
+form button:hover {
+    color: #b86b82;
+    text-decoration: underline;
+}
+
+body{
+    margin: 0;
+}
+.Appointments {
+    padding: 30px;
+    background: #fdfdfd;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    max-width: 1000px;
+    font-family: 'Shippori Mincho', serif;
+}
+
+.Appointments h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #444;
+    font-size: 1.8rem;
+}
+
+
+.Appointments table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.Appointments th, 
+.Appointments td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.Appointments th {
+    background: #f7c6d9;
+    color: #333;
+    font-weight: bold;
+}
+
+.Appointments tr:nth-child(even) {
+    background: #fafafa;
+}
+
+.Appointments tr:hover {
+    background: #f0f0f0;
+}
+
+
+.Appointments td span {
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.Appointments td span[style*="green"] {
+    background: #e6f9e6;
+    color: #2e7d32;
+}
+
+.Appointments td span[style*="red"] {
+    background: #fde0e0;
+    color: #c62828;
+}
+
+.Appointments td span[style*="orange"] {
+    background: #fff3e0;
+    color: #ef6c00;
+}

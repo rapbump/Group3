@@ -1,17 +1,8 @@
 <?php
 session_start();
+include '../backend/connection.php';
 
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$dbname = 'customer_db';
-
-$conn = new mysqli($host, $user, $password, $dbname);
-if ($conn->connect_error) {
-    die('Database connection failed: ' . $conn->connect_error);
-}
-
-$results = $conn->query("SELECT service_id, service_name FROM service");
+$results = $conn->query("SELECT service_id, service_name FROM services");
 if (!$results) {
     die('Query failed: ' . $conn->error);
 }
@@ -39,13 +30,12 @@ if (!$results) {
         </div>
         <div class="form_sec">
             <h3>Book an Appointment</h3>
-            <form action="../backend/books.php" method="POST">
+            <form action="../backend/booking_handler.php" method="POST">
                 <input type="hidden" name="action" value="book">
                 <input type="text" name="fname" placeholder="Full Name" required>
                 <input type="date" name="date" required>
                 <input type="tel" name="phone" placeholder="Phone Number" required>
                 <input type="time" name="time" placeholder="00:00 Am" required>
-                <input type="email" name="email" placeholder="Email" required>
                 <div class="form-row">
                     <label for="services">Choose Services</label>
                     <select name="services" required>

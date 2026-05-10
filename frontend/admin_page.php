@@ -1,23 +1,42 @@
 <?php
 session_start();
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$dbname = 'customer_db';
+$host = "localhost";
+$user = "root";
+$password = "";
+$dbname = "glowtrack_db";
 
 $conn = new mysqli($host, $user, $password, $dbname);
-if ($conn->connect_error) {
-    die('Database connection failed: ' . $conn->connect_error);
+
+if($conn->connect_error){
+    die("Connection Failed: ". $conn->connect_error);
 }
 
-$results = $conn->query("SELECT * FROM service");
+$results = $conn->query("SELECT * FROM services");
 if (!$results) {
     die('Query failed: ' . $conn->error);
 }
 $prodResults = $conn->query("SELECT * FROM products");
 if (!$prodResults) {        
     die('Query failed: ' . $conn->error);
-}   
+}
+$resultBook = $resultBook = $conn->query("
+    SELECT b.booking_id, u.username, s.service_name, b.appointment_date, b.appointment_time
+    FROM booking b
+    JOIN users u ON b.user_id = u.user_id
+    JOIN services s ON b.service_id = s.service_id
+");
+$total = $conn->query("SELECT COUNT(*) AS  total_orders from orders");
+$total_row = $total->fetch_assoc();
+
+$total_cus = $conn->query("SELECT COUNT(*) AS  total_customers from users  WHERE role = 'user'");
+$total_c = $total_cus->fetch_assoc();
+
+$total_p = $conn->query("SELECT COUNT(*) AS total_pro FROM products");
+$total_prod = $total_p->fetch_assoc();
+
+$total_a = $conn->query("SELECT COUNT(*) AS total_app FROM booking");
+$total_s = $total_a->fetch_assoc();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,13 +51,14 @@ if (!$prodResults) {
 <body>
     <header>
         <div class="logo">
-            <a href="admin.php">GlowTrack</a>
+            <a href="admin_page.php">GlowTrack</a>
         </div>
         <nav>
             <a href="#users">Manage Dashboard</a>
             <a href="#services">Manage Services</a>
             <a href="#products">Manage Products</a>
-            <form action="../backend/logs.php" method="POST">
+            <a href="../frontend/admin_appointment.php">Manage Appointments</a>
+            <form action="../backend/users_logs.php" method="POST">
                 <input type="hidden" name="action" value="logout">
                 <button type="submit">Log Out</button>
             </form>
@@ -51,36 +71,41 @@ if (!$prodResults) {
             <div class="data">
                 <h3>Orders</h3>
                 <h3>Customers</h3>
-                <h3>Revenue</h3>
+                <h3>Appointments</h3>
                 <h3>Products</h3>
             </div>
             <div class="numbers">
-                <h2 class="ol">30</h2>
-                <h2 class="total">15</h2>
-                <h2 class="revenue">$$</h2>
-                <h2 class="products">$$</h2>
+                <h2 class="ol"><?php echo $total_row['total_orders']; ?></h2>
+                <h2 class="total"><?php echo $total_c['total_customers']; ?></h2>
+                <h2 class="appointment"><?php echo $total_s['total_app'];?></h2>
+                <h2 class="products"><?php echo $total_prod['total_pro']; ?></h2>
             </div>
             <div class="view">
-                <a href="#">View Orders</a>
-                <a href="#">View Customers</a>
-                <a href="#">View Revenue</a>
-                <a href="#">View Products</a>
+                <a href="/frontend/view_orders.php">View Orders</a>
+                <a href="/frontend/view_customers.php">View Customers</a>
+                <a href="/frontend/admin_appointment.php">View Appointments</a>
+                <a href="/frontend/view_product.php">View Products</a>
             </div>
             <div class="bot-container">
-                <div class="reviews">
-                    <h3>Customer Reviews: </h3>
-                    <p>"Amazing service and products! My skin has never felt better."</p>
-                    <p>"The staff is so knowledgeable and friendly. Highly recommend!"</p>
-                    <p>"I love the natural ingredients in their skincare line. My skin is glowing!"</p>
-                    <a href="reviews.php">View All Reviews</a>
-                </div>
+                <?php while ($row = $resultBook->fetch_assoc()): ?>
+                <?php
+                    $date = !empty($row['appointment_date']) 
+                        ? date("m/d/Y", strtotime($row['appointment_date'])) 
+                        : "No date set";
+
+                    $time = !empty($row['appointment_time']) 
+                        ? date("g:i A", strtotime($row['appointment_time'])) 
+                        : "No time set";
+                ?>
                 <div class="appointments">
-                    <h3>Upcoming Appointments: </h3>
-                    <p>Jane Doe - Facial - 10/15/2024 2:00 PM</p>
-                    <p>John Smith - Acne Treatment - 10/16/2024 11:00 AM</p>
-                    <p>Emily Davis - Hydration Therapy - 10/17/2024 1:00 PM</p>
-                    <a href="appointments.php">View All Appointments</a>
+                    <h2>Appointments: </h2>
+                    <h3>
+                        <?= htmlspecialchars($row['username']) ?>
+                        - <?= htmlspecialchars($row['service_name']) ?>
+                        - <?= $date . " " . $time ?>
+                    </h3>
                 </div>
+                <?php endwhile ?>
             </div>
         </section>
         <section class="manage-section" id="services">
@@ -96,7 +121,7 @@ if (!$prodResults) {
                 <?php endwhile; ?>
             </div>
             <div class="add">
-                <a href="addSer.php">Add New Service</a>
+                <a href="admin_addSer.php">Add New Service</a>
             </div>
         </section>
         <section class="manage-section" id="products">
@@ -105,17 +130,14 @@ if (!$prodResults) {
             <div class="prod-container">
                 <?php while ($row = $prodResults->fetch_assoc()): ?>
                 <div class="prods">
-                    <h3><?php echo htmlspecialchars($row['product_name']); ?></h3>
+                    <h3><?php echo htmlspecialchars($row['pname']); ?></h3>
                     <p>Description: <?php echo htmlspecialchars($row['description']); ?></p>
                     <p>Price: $<?php echo htmlspecialchars($row['price']); ?></p>
                 </div>
                 <?php endwhile; ?>
-                <div>
-                    <a href="products.php">View All Products</a>
-                </div>
             </div>
             <div class="add">
-                <a href="addPro.php">Add New Product</a>
+                <a href="admin_addPro.php">Add New Product</a>
             </div>
         </section>
     </main>

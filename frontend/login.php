@@ -1,5 +1,15 @@
 <?php
 session_start();
+$host = "localhost";
+$user = "root";
+$password = "";
+$dbname = "glowtrack_db";
+
+$conn = new mysqli($host, $user, $password, $dbname);
+
+if($conn->connect_error){
+    die("Connection Failed: ". $conn->connect_error);
+}
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +48,7 @@ session_start();
         <section>
             <div class="container">
                 <div class="form_box" id="login-form">
-                    <form action="./../backend/logs.php" method="POST">
+                    <form action="../backend/users_logs.php" method="POST">
                         <h2>Log In</h2>
                         <input type="hidden" name="action" value="login">
                         <input type="text" name="name" placeholder="Username" required>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../backend/connection.php';
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +29,7 @@ session_start();
     <section class="entrance">
         <div class="halfL">
             <h2>Glow naturally with GlowTrack</h2>
-            <form method="POST" action="../backend/logs.php">
+            <form method="POST" action="../backend/users_logs.php">
                 <input type="hidden" name="action" value="signup">
                 <div class="others">
                     <input type="text" name="name" placeholder="Username" required>

@@ -26,6 +26,7 @@ session_start();
         <nav class="navs">
             <a href="#Home">Home</a>
             <a href="#About">About</a>
+            <a href="#services">Services</a>
             <div class="log">
                 <a href="./frontend/login.php">Log In</a>
             </div>
@@ -40,7 +41,7 @@ session_start();
                 <h1>REVEL IN YOUR MOST NATURAL GLOW</h1>
                 <p>Luxury, Science-led Natural Skincare made from high quality plant extracts.</p>
                 <div class="book">
-                    <form action="./backend/books.php" method="POST">
+                    <form action="./backend/booking_handler.php" method="POST">
                         <input type="hidden" name="action" value="book">
                         <button type="submit" >Book an appointment</button>
                     </form>
@@ -75,7 +76,7 @@ session_start();
             </div>
         </section>
     </main>
-    <footer class="footer">
+    <footer class="footer" id="services">
         <div class="footer-container">
             <h4>Services</h4>
             <ul class="footer-services">

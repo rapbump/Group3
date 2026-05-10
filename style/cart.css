@@ -23,30 +23,21 @@ header {
     color: #FF86AA;
     font-family: Great Vibes;
 }
-nav{
+nav a{
     display: flex;
     gap: 20px;
-}
-nav a {
     text-decoration: none;
-    color: #FF85A9;
-    font-weight: 500;
 }
-nav a:hover {
-    color: #b86b82;
-    text-decoration: underline;
-}
-.cart a{
+.order a{
     background-color: #FF85A9;
     color: #fff;
     padding: 10px 15px;
     border-radius: 8px;
     font-weight: bold;
 }
-.cart a:hover {
+.order a:hover {
     background-color: #e67396;
 }
-
 .products {
     display: flex;
     flex-wrap: wrap;
@@ -60,7 +51,7 @@ nav a:hover {
     margin: 30px auto;
     max-width: 1200px;
 }
-.market h2 {
+.cart h2 {
     color: #333;
     margin-left: 20px;
     border-bottom: 1px solid #ddd;
